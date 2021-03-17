@@ -70,7 +70,7 @@ class Geminipy(object):
 
         return requests.get(url, params)
 
-    def trades(self, symbol='btcusd', since=0, limit_trades=50,
+    def trades(self, symbol='btcusd', timestamp=0, limit_trades=50,
                include_breaks=0):
         """
         Send a request to get all public trades, return the response.
@@ -83,7 +83,7 @@ class Geminipy(object):
         """
         url = self.base_url + '/v1/trades/' + symbol
         params = {
-            'since': since,
+            'timestamp': timestamp,
             'limit_trades': limit_trades,
             'include_breaks': include_breaks
         }
