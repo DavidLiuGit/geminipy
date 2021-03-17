@@ -191,7 +191,7 @@ class Geminipy(object):
 
         return requests.post(url, headers=self.prepare(params))
 
-    def order_status(self, order_id):
+    def order_status(self, order_id, include_trades=False):
         """
         Send a request to get an order status, return the response.
 
@@ -203,7 +203,8 @@ class Geminipy(object):
         params = {
             'request': request,
             'nonce': self.get_nonce(),
-            'order_id': order_id
+            'order_id': order_id,
+            'include_trades': include_trades
         }
 
         return requests.post(url, headers=self.prepare(params))
